@@ -1,7 +1,7 @@
-# Q-and-a
+# Q-and-a by Paul Hess Paul-Hess on GitHub.
 
 This README outlines the details of collaborating on this Ember application.
-A short introduction of this app could easily go here.
+Q and A Anzwers is an exercise in creating Ember JS applications using Emberfire and firebase. Follow the install instructions below and then interact with the app by asking and answering questions, or vote on some of the ones already there.
 
 ## Prerequisites
 
@@ -39,9 +39,8 @@ Make use of the many generators for code, try `ember help generate` for more det
 * `ember build` (development)
 * `ember build --environment production` (production)
 
-### Deploying
-
-Specify what it takes to deploy your app.
+### Issues 
+	No known issues.
 
 ## Further Reading / Useful Links
 
@@ -50,4 +49,9 @@ Specify what it takes to deploy your app.
 * Development Browser Extensions
   * [ember inspector for chrome](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
   * [ember inspector for firefox](https://addons.mozilla.org/en-US/firefox/addon/ember-inspector/)
+
+### License
+    
+Available for use under the MIT license.
+Copyright (c) 2016 **_Paul Hess_**
 
