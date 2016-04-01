@@ -3,6 +3,10 @@
 <p class="question-author">{{question.author}}</p>
 <button {{action 'confirm' "yes"}}>remove question</button>
 
+<div class="new-answer">
+	{{new-answer question=question saveAnswer="saveAnswer" }}
+</div>
+
 {{#if hiddenConfirm}}
 	<div class="confirm">
 		<h3> Are you sure you want to permanently delete this question?</h3>
