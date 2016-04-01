@@ -11,6 +11,28 @@
   display: table;
 }
 
+.confirm {
+  position: absolute;
+  top: 10vw;
+  left: 0;
+  background: rgba(red, .6);
+  border-radius: 5px;
+  box-shadow: 2px 2px 10px rgba(red, .5);
+  width: 100vw;
+  height: 100vh;
+  transition: all .4s linear;
+  button {
+    width: 40%;
+    margin-left: 32%;
+    background: white;
+    color: black;
+  }
+  h3 {
+    text-align: center;
+    color: white;
+  }
+}
+
 /**
  * Main content containers
  * 1. Make the container full-width with a maximum width

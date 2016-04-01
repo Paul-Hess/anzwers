@@ -4,8 +4,11 @@
 	<p>{{answer.voteTally}}</p>
 
 	<div class="buttons">
-		<button {{action 'vote' "up" answer}}>upvote</button>
-		<button {{action 'vote' "down" answer}}>downvote</button>
+		<div class="vote">
+			<p>vote: </p>
+			<button {{action 'vote' "up" answer}}>up</button>
+			<button {{action 'vote' "down" answer}}>down</button>	
+		</div>
 		<div class="delete">
 			<p>delete: </p>
 			<button {{action 'confirmAnswerDelete' "yes"}}>answer</button>

@@ -4,8 +4,11 @@
 <p class="question-votes">{{question.voteTally}}</p>
 
 <div class="buttons">
-	<button  {{action "vote" "up" question}}>upvote</button>
-	<button {{action "vote" "down" question}}>downvote</button>
+	<div class="vote">
+		<p>vote: </p>
+		<button  {{action "vote" "up" question}}>up</button>
+		<button {{action "vote" "down" question}}>down</button>
+	</div>
 	<div class="update-question">
 		<p>edit:</p>
 		{{update-question question=question update="update"}}

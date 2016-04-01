@@ -15,12 +15,12 @@
 	flex-wrap: wrap;
 	justify-content: space-around;
 	align-items: baseline;
-	button, .update-question, .new-answer, .delete, .update-answer {
-		width: 50%;
+		.vote, .update-question, .new-answer, .delete, .update-answer {
+			width: 20%;
 	}
 }
 
-.update-question, .new-answer, .delete, .update-answer {
+.vote, .update-question, .new-answer, .delete, .update-answer {
 		border: 1px solid rgba($bg-button, .6);
 		button {
 		 width: 100%;
