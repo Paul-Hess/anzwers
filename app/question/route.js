@@ -49,22 +49,22 @@ export default Ember.Route.extend({
 			obj.save();
 		},
 
-		upVote(answer) {
-			var tally = answer.get('voteTally');
+		upVote(obj) {
+			var tally = obj.get('voteTally');
 			console.log(tally);
 			var upTally = tally+=1;
-			answer.set("voteTally", upTally);
-			answer.save();
-			console.log(answer.get('voteTally'));
+			obj.set("voteTally", upTally);
+			obj.save();
+			console.log(obj.get('voteTally'));
 		},
 
-		downVote(answer) {
-			var tally = answer.get('voteTally');
+		downVote(obj) {
+			var tally = obj.get('voteTally');
 			console.log(tally);
 			var downTally = tally-=1;
-			answer.set('voteTally', downTally);
-			answer.save();
-			console.log(answer.get('voteTally'));
+			obj.set('voteTally', downTally);
+			obj.save();
+			console.log(obj.get('voteTally'));
 		}
 	}
 });
