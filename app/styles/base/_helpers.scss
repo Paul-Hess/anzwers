@@ -12,24 +12,25 @@
 }
 
 .confirm {
-  position: absolute;
-  top: 10vw;
-  left: 0;
-  background: rgba(red, .6);
   border-radius: 5px;
   box-shadow: 2px 2px 10px rgba(red, .5);
   width: 100vw;
   height: 100vh;
-  transition: all .4s linear;
+  animation: grow 2s linear forwards;
   button {
     width: 40%;
     margin-left: 32%;
-    background: white;
-    color: black;
+    background: rgba(red, .7);
   }
   h3 {
     text-align: center;
-    color: white;
+    color: black;
+  }
+}
+
+@keyframes grow {
+  100% {
+    background: rgba(red, .6);
   }
 }
 

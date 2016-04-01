@@ -4,11 +4,13 @@
 	<p>{{answer.voteTally}}</p>
 
 	<div class="buttons">
+	
 		<div class="vote">
 			<p>vote: </p>
 			<button {{action 'vote' "up" answer}}>up</button>
 			<button {{action 'vote' "down" answer}}>down</button>	
 		</div>
+
 		<div class="delete">
 			<p>delete: </p>
 			<button {{action 'confirmAnswerDelete' "yes"}}>answer</button>
@@ -21,6 +23,7 @@
 			<button {{action 'confirmAnswerDelete' false}}>no</button>
 		</div>
 	{{/if}}
+
 	<div class="update-answer">
 		<p>edit:</p>
 		{{update-answer answer=answer updateAnswer="updateAnswer"}}

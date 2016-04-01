@@ -1,5 +1,5 @@
 {{#if updateForm}}
-<form>
+<form class="form-grow">
 
 	<label for="query">edit your question: </label>
 	{{input value=query type="text" id="query" placeholder=question.query}}
@@ -8,6 +8,9 @@
 	{{input value=notes type="text" id="notes" placeholder=question.notes}}
 
 	<button {{action "update" question}}>Submit</button>
+
 </form>
+
 {{/if}}
+
 <button {{action "toggleUpdate"}}>open/close</button>
