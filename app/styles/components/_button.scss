@@ -1,0 +1,14 @@
+// -----------------------------------------------------------------------------
+// This file contains all styles related to the button component.
+// -----------------------------------------------------------------------------
+button {
+	padding: .2em 2em;
+	color: $bg-color;
+	background: $bg-button;
+	border: none;
+	border-radius: $radius;
+	outline: none;
+	&:active, &:hover, &:visited {
+		outline: .3em groove rgba($bg-button, .3);
+	}
+}

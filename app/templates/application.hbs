@@ -1,3 +1,11 @@
-<h2 id="title">Welcome to Ember</h2>
+<header class="site-header">
+	<h2>Anzwers</h2>
+	<h3>Ask The Web No Questions They Tell You No Lies</h3>
+	<nav class="nav-flag">
+		{{#link-to 'index'}}Home{{/link-to}}
+		{{#link-to 'contact'}}Contact{{/link-to}}
+		{{#link-to 'learn'}}Learn{{/link-to}}
+	</nav>
+</header>
 
 {{outlet}}
