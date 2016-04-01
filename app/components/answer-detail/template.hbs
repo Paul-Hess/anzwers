@@ -1,0 +1,16 @@
+{{#each answers as |answer|}} 
+	<h3>{{answer.response}}</h3>
+	<p>{{answer.author}}</p>
+	<button {{action 'confirmAnswerDelete' "yes"}}>remove answer</button>
+
+{{#if answerRemove}}
+	<div class="confirm">
+		<h3> Are you sure you want to permanently delete this answer?</h3>
+		<button {{action 'deleteAnswer' answer}}>yes</button>
+		<button {{action 'confirmAnswerDelete' false}}>no</button>
+	</div>
+{{/if}}
+
+	{{update-answer answer=answer updateAnswer="updateAnswer"}}
+
+{{/each}}

@@ -1,0 +1,11 @@
+{{#if updateForm}}
+<form>
+
+	<label for="response">edit your answer: </label>
+	{{input value=response type="text" id="response"}}
+
+
+	<button {{action "updateAnswer" answer}}>Submit</button>
+</form>
+{{/if}}
+<button {{action "toggleUpdate"}}>open/close edit answer form</button>
