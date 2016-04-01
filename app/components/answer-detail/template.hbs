@@ -2,18 +2,26 @@
 	<h3>{{answer.response}}</h3>
 	<p>{{answer.author}}</p>
 	<p>{{answer.voteTally}}</p>
-	<button {{action 'vote' "up" answer}}>upvote</button>
-	<button {{action 'vote' "down" answer}}>downvote</button>
-	<button {{action 'confirmAnswerDelete' "yes"}}>remove answer</button>
 
-{{#if answerRemove}}
-	<div class="confirm">
-		<h3> Are you sure you want to permanently delete this answer?</h3>
-		<button {{action 'deleteAnswer' answer}}>yes</button>
-		<button {{action 'confirmAnswerDelete' false}}>no</button>
+	<div class="buttons">
+		<button {{action 'vote' "up" answer}}>upvote</button>
+		<button {{action 'vote' "down" answer}}>downvote</button>
+		<div class="delete">
+			<p>delete: </p>
+			<button {{action 'confirmAnswerDelete' "yes"}}>answer</button>
+		</div>
+
+	{{#if answerRemove}}
+		<div class="confirm">
+			<h3> Are you sure you want to permanently delete this answer?</h3>
+			<button {{action 'deleteAnswer' answer}}>yes</button>
+			<button {{action 'confirmAnswerDelete' false}}>no</button>
+		</div>
+	{{/if}}
+	<div class="update-answer">
+		<p>edit:</p>
+		{{update-answer answer=answer updateAnswer="updateAnswer"}}
 	</div>
-{{/if}}
 
-	{{update-answer answer=answer updateAnswer="updateAnswer"}}
-
-{{/each}}
+</div>
+	{{/each}}
