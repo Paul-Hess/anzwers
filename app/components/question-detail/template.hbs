@@ -1,0 +1,16 @@
+<h4 class="question-header">{{question.query}}</h4>
+<h5 class="question-notes">{{question.notes}}</h5>
+<p class="question-author">{{question.author}}</p>
+<button {{action 'confirm' "yes"}}>remove question</button>
+
+{{#if hiddenConfirm}}
+	<div class="confirm">
+		<h3> Are you sure you want to permanently delete this question?</h3>
+		<button {{action 'delete' question}}>yes</button>
+		<button {{action 'confirm' false}}>no</button>
+	</div>
+{{/if}}
+
+<div class="update-question">
+	{{update-question question=question update="update"}}
+</div>

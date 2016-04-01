@@ -1,4 +1,9 @@
 <div class="new-question">
-	{{new-question question=model.questions saveQuestion2=saveQuestion3}}
-	
+	{{new-question question=model.questions saveQuestion2="saveQuestion3"}}
 </div>
+
+{{#each model.questions as |question|}}
+	<div class="question-summary">
+		{{#link-to 'question' question.id}}{{question-summary question=question}}{{/link-to}}
+	</div>
+{{/each}}
