@@ -1,6 +1,9 @@
 {{#each answers as |answer|}} 
 	<h3>{{answer.response}}</h3>
 	<p>{{answer.author}}</p>
+	<p>{{answer.voteTally}}</p>
+	<button {{action 'vote' "up" answer}}>upvote</button>
+	<button {{action 'vote' "down" answer}}>downvote</button>
 	<button {{action 'confirmAnswerDelete' "yes"}}>remove answer</button>
 
 {{#if answerRemove}}

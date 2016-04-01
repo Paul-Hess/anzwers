@@ -21,7 +21,6 @@ export default Ember.Route.extend({
 		update(obj, params) {
 			Object.keys(params).forEach(function(key) {
 				if(params[key] !== undefined) {
-					console.log(obj);
 					obj.set(key, params[key]);
 				}
 			});
@@ -44,11 +43,28 @@ export default Ember.Route.extend({
 		updateAnswer(obj, params) {
 			Object.keys(params).forEach(function(key) {
 				if(params[key] !== undefined) {
-					console.log(obj);
 					obj.set(key, params[key]);
 				}
 			});
 			obj.save();
+		},
+
+		upVote(answer) {
+			var tally = answer.get('voteTally');
+			console.log(tally);
+			var upTally = tally+=1;
+			answer.set("voteTally", upTally);
+			answer.save();
+			console.log(answer.get('voteTally'));
+		},
+
+		downVote(answer) {
+			var tally = answer.get('voteTally');
+			console.log(tally);
+			var downTally = tally-=1;
+			answer.set('voteTally', downTally);
+			answer.save();
+			console.log(answer.get('voteTally'));
 		}
 	}
 });

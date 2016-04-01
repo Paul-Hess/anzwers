@@ -14,7 +14,8 @@ export default Ember.Component.extend({
 			var params = {
 				author: this.get('author'),
 				notes: this.get('notes'),
-				query: this.get('query')
+				query: this.get('query'),
+				voteTally: 1
 			};
 			this.sendAction('saveQuestion2', params);
 		}

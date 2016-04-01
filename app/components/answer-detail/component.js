@@ -17,6 +17,13 @@ export default Ember.Component.extend({
 		},
 		updateAnswer(answer, params) {
 			this.sendAction('updateAnswer', answer, params);
+		},
+		vote(direction, answer) {
+			if(direction === "up") {
+				this.sendAction('upVote', answer);
+			} else {
+				this.sendAction('downVote', answer);
+			}
 		}
 	}
 });
