@@ -1,4 +1,4 @@
-# Q-and-a by Paul Hess Paul-Hess on GitHub.
+# Q-and-a by Paul Hess
 
 This README outlines the details of collaborating on this Ember application.
 Q and A Anzwers is an exercise in creating Ember JS applications using Emberfire and firebase. Follow the install instructions below and then interact with the app by asking and answering questions, or vote on some of the ones already there.

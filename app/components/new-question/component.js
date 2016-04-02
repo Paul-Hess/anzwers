@@ -18,6 +18,7 @@ export default Ember.Component.extend({
 				voteTally: 1
 			};
 			this.sendAction('saveQuestion2', params);
+			this.set('askNewQuery', false);
 		}
 	}
 });
