@@ -1,6 +1,8 @@
 <div class="new-question">
 	{{new-question user=user question=user.questions saveQuestion="saveQuestion"}}
 </div>
+
+{{log currentUser}}
 <div class="user-questions">
 	{{#each user.questions as |question|}}
 		<h4 class="question-header">{{question.query}}</h4>
