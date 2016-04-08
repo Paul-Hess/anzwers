@@ -3,58 +3,78 @@
 <div class="new-question">
 	{{new-question user=user question=user.questions saveQuestion="saveQuestion"}}
 </div>
-
-			<div class="delete">
-				<p> delete: </p>
-				<button {{action "confirm" "hiddenDeleteAccount" "yes"}}>Account</button>
-			</div>
 			
 
-			{{#if hiddenDeleteAccount}}
-				<div class="confirm">
-					<h3> Are you sure you want to permanently delete your Account?</h3>
-					<label for='confirm-delete-email'>confirm user email: </label>
-					{{input value=email type="email" id="confirm-delete-email" placeholder="email"}}
-					<label for='confirm-delete-password'>confirm user password:</label>
-					{{input value=password  id="confirm-delete-password" placeholder="password" type=password}}
-					<button {{action 'deleteUser' user}}>yes</button>
-					<button {{action 'confirm' "hiddenDeleteAccount" false}}>no</button>
-				</div>
-			{{/if}}
+			
+			
 
 
 <div class="user-questions">
 	{{#each user.questions as |question|}}
-		<h4 class="question-header">{{question.query}}</h4>
-		<h5 class="question-notes">{{question.notes}}</h5>
-		<p class="question-author">{{question.author}}</p>
-		<p class="question-votes">{{question.voteTally}}</p>
+	
 
-		{{#each question.answers as |answer|}}
+	{{user-questions question=question}}
 
+		
+	{{#each question.answers as |answer|}}
+		<h3>{{answer.response}}</h3>
+		<p>{{answer.author}}</p>
+		<p>{{answer.voteTally}}</p>
 
-		{{/each}}
+		<div class="vote">
+			<p>vote: </p>
+			<button  {{action "vote" "up" answer}}>up</button>
+			<button {{action "vote" "down" answer}}>down</button>
+		</div>
+	{{/each}}
 	
 	<div class="buttons">
 
-			<div class="update-question">
-				<p>edit:</p>
-				{{update-question question=question update="update"}}
-			</div>
-			
-			<div class="delete">
-				<p>delete: </p> 
-				<button {{action 'confirm' "hiddenDeleteQuestion" "yes"}}>question</button>
-			</div>
+		<div class="update-question">
+			<p>edit:</p>
+			{{update-question question=question update="update"}}
+		</div>
+		
+		<div class="delete">
+			<p>delete: </p> 
+			<button {{action 'confirm' "hiddenDeleteQuestion" "yes"}}>question</button>
+		</div>
 
-			{{#if hiddenDeleteQuestion}}
-				<div class="confirm">
-					<h3> Are you sure you want to permanently delete this question?</h3>
-					<button {{action 'deleteQuestion' question}}>yes</button>
-					<button {{action 'confirm' "hiddenDeleteQuestion" false}}>no</button>
-				</div>
-			{{/if}}
+		{{#if hiddenDeleteQuestion}}
+			<div class="confirm">
+				<h3> Are you sure you want to permanently delete this question?</h3>
+				<button {{action 'deleteQuestion' question}}>yes</button>
+				<button {{action 'confirm' "hiddenDeleteQuestion" false}}>no</button>
+			</div>
+		{{/if}}
 	
-</div>
+	</div>
+
 {{/each}}
 </div>
+
+{{!-- account management --}}
+{{#if adminAccount}}
+		<div class="delete">
+		<p> delete: </p>
+		<button {{action "confirm" "hiddenDeleteAccount" "yes"}}>Account</button>
+	</div>
+
+
+{{#if hiddenDeleteAccount}}
+	<div class="confirm">
+		<h3> Are you sure you want to permanently delete your Account?</h3>
+		<label for='confirm-delete-email'>confirm user email: </label>
+		{{input value=email type="email" id="confirm-delete-email" placeholder="email"}}
+		<label for='confirm-delete-password'>confirm user password:</label>
+		{{input value=password  id="confirm-delete-password" placeholder="password" type=password}}
+		<button {{action 'deleteUser' user}}>yes</button>
+		<button {{action 'confirm' "hiddenDeleteAccount" false}}>no</button>
+	</div>
+{{/if}}
+
+<button {{action "confirm" "adminAccount" false}}>Close</button>
+{{else}}
+	Your Account: 
+	<button {{action "confirm" "adminAccount" "yes"}}>Open</button>
+{{/if}}

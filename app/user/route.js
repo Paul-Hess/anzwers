@@ -9,6 +9,7 @@ export default Ember.Route.extend({
 		});
 	}, 
 	actions: {
+
 		saveQuestion(params) {
 			let newQuestion = this.store.createRecord('question', params);
 			let user = params.user;
@@ -19,6 +20,7 @@ export default Ember.Route.extend({
 				console.log('success', " question saved!")
 			});
 		},
+
 		update(obj, params) {
 			Object.keys(params).forEach(function(key) {
 				if(params[key] !== undefined) {
@@ -27,6 +29,7 @@ export default Ember.Route.extend({
 			});
 			obj.save();
 		},
+
 		deleteQuestion(question) {
 			let answerDelete = question.get('answers').map(function(answer) {
 				return answer.destroyRecord();
@@ -35,6 +38,7 @@ export default Ember.Route.extend({
 				return question.destroyRecord();
 			});
 		},
+
 		deleteUser(user, params) {
 			let ref = new Firebase('https://anzwers.firebaseio.com/');
 			let _this = this;
@@ -73,6 +77,23 @@ export default Ember.Route.extend({
 					});
 				});
 				this.transitionTo('index');
+		},
+
+		upVote(obj) {
+			console.log(obj);
+			var tally = obj.get('voteTally');
+			var upTally = tally+=1;
+			obj.set("voteTally", upTally);
+			obj.save();
+		},
+
+		downVote(obj) {
+			var tally = obj.get('voteTally');
+			var downTally = tally-=1;
+			obj.set('voteTally', downTally);
+			obj.save();
 		}
+
 	}
+
 });
