@@ -3,6 +3,7 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 	firebase: Ember.inject.service(),
 	model(params) {
+    console.log(params);
 		return Ember.RSVP.hash({
 			answers: this.store.findAll('answer'),
 			questions: this.store.findAll('question'),

@@ -3,18 +3,21 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 	model(params) {
 		return Ember.RSVP.hash({
+			currentAuthUser: this.get('session').get('currentUser'),
 			questions: this.store.findRecord('question', params.question_id),
-			answers: this.store.findAll('answer')
+			answers: this.store.findAll('answer'),
+			users: this.store.findAll('user')
 		});
 	},
+
 	actions: {
 		saveAnswer(params) {
-			var newAnswer = this.store.createRecord('answer', params);
-			var question = params.question;
-			question.get('answers').addObject(newAnswer);
-			newAnswer.save().then(function() {
-				return question.save();
-			});
+				let newAnswer = this.store.createRecord('answer', params);
+				let question = params.question;
+				question.get('answers').addObject(newAnswer);
+				newAnswer.save().then(function() {
+					return question.save();
+				});
 		},
 
 		deleteAnswer(answer) {
@@ -31,15 +34,15 @@ export default Ember.Route.extend({
 		},
 
 		upVote(obj) {
-			var tally = obj.get('voteTally');
-			var upTally = tally+=1;
+			let tally = obj.get('voteTally');
+			let upTally = tally+=1;
 			obj.set("voteTally", upTally);
 			obj.save();
 		},
 
 		downVote(obj) {
-			var tally = obj.get('voteTally');
-			var downTally = tally-=1;
+			let tally = obj.get('voteTally');
+			let downTally = tally-=1;
 			obj.set('voteTally', downTally);
 			obj.save();
 		}

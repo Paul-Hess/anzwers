@@ -4,6 +4,7 @@ export default Ember.Route.extend({
 	model(params)  {
 		return Ember.RSVP.hash({
 			user: this.store.findRecord('user', params.user_id),
+			myEmail: this.store.query('user', {orderBy: 'email', equalTo: 'paul@paul.com'}).get('email'),
 			questions: this.store.findAll('question'),
 			answers: this.store.findAll('answer')
 		});
@@ -17,7 +18,7 @@ export default Ember.Route.extend({
 			newQuestion.save().then(function() {
 				user.get('questions').addObject(newQuestion);
 				user.save();
-				console.log('success', " question saved!")
+				console.log('success', " question saved!");
 			});
 		},
 
