@@ -9,6 +9,7 @@ export default Ember.Component.extend({
 				notes: this.get('notes')
 			};
 			this.sendAction("update", question, params);
+			this.set('updateForm', false);
 		},
 		toggleUpdate() {
 			if(this.updateForm === false) {
