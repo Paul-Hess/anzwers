@@ -32,7 +32,6 @@ export default Ember.Route.extend({
 
 		upVote(obj) {
 			var tally = obj.get('voteTally');
-			console.log(tally);
 			var upTally = tally+=1;
 			obj.set("voteTally", upTally);
 			obj.save();
@@ -41,7 +40,6 @@ export default Ember.Route.extend({
 
 		downVote(obj) {
 			var tally = obj.get('voteTally');
-			console.log(tally);
 			var downTally = tally-=1;
 			obj.set('voteTally', downTally);
 			obj.save();

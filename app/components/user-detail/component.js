@@ -1,7 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
-	hiddenDelete: false,
+	hiddenDeleteQuestion: false,
+	hiddenDeleteAccount: false,
 	votesArray: Ember.computed.map('user.questions', function(question, index) {
 		return question.get('voteTally');
 	}),
@@ -15,13 +16,21 @@ export default Ember.Component.extend({
 	actions: {
 		deleteQuestion(question) {
 			this.sendAction('deleteQuestion', question);
-			this.set('hiddenDelete', false);
+			this.set('hiddenDeleteQuestion', false);
 		},
-		confirm(answer) {
+		deleteUser(user) {
+			var params = {
+				email: this.get('email'),
+				password: this.get('password')
+			}
+			this.sendAction('deleteUser', user, params);
+			this.set('hiddenDeleteAccount', false);
+		},
+		confirm(param ,answer) {
 			if(answer === "yes") {
-				this.set('hiddenDelete', true);
+				this.set(param, true);
 			} else {
-				this.set('hiddenDelete', false);
+				this.set(param, false);
 			}
 		},
 		update(question, params) {
