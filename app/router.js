@@ -9,6 +9,9 @@ Router.map(function() {
   this.route('question', {path: '/question/:question_id'});
   this.route('learn');
   this.route('contact');
+  this.route('user', {path: '/user/:user_id'});
+  this.route('login');
+  this.authenticatedRoute('protected');
 });
 
 export default Router;

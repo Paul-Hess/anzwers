@@ -7,12 +7,12 @@ export default Ember.Component.extend({
 			var params = {
 				query: this.get('query'),
 				notes: this.get('notes')
-			}
+			};
 			this.sendAction("update", question, params);
 		},
 		toggleUpdate() {
 			if(this.updateForm === false) {
-				this.set('updateForm', true)
+				this.set('updateForm', true);
 			} else {
 			this.set('updateForm', false);
 			}
