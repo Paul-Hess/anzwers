@@ -17,5 +17,8 @@ export default Ember.Component.extend({
 		update(question, params) {
 			this.sendAction('update', question, params);
 		},
+		saveQuestion(params) {
+			this.sendAction('saveQuestion', params);
+		}
 	}
 });
