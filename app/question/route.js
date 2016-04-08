@@ -8,25 +8,6 @@ export default Ember.Route.extend({
 		});
 	},
 	actions: {
-		delete(question) {
-			var answerDelete = question.get('answers').map(function(answer) {
-				return answer.destroyRecord();
-			});
-			Ember.RSVP.all(answerDelete).then(function() {
-				return question.destroyRecord();
-			});
-			this.transitionTo('index');
-		},
-
-		update(obj, params) {
-			Object.keys(params).forEach(function(key) {
-				if(params[key] !== undefined) {
-					obj.set(key, params[key]);
-				}
-			});
-			obj.save();
-		},
-		
 		saveAnswer(params) {
 			var newAnswer = this.store.createRecord('answer', params);
 			var question = params.question;

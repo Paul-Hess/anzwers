@@ -2,7 +2,6 @@
 	{{new-question user=user question=user.questions saveQuestion="saveQuestion"}}
 </div>
 
-{{log currentUser}}
 <div class="user-questions">
 	{{#each user.questions as |question|}}
 		<h4 class="question-header">{{question.query}}</h4>
@@ -30,7 +29,7 @@
 			{{#if hiddenDelete}}
 				<div class="confirm">
 					<h3> Are you sure you want to permanently delete this question?</h3>
-					<button {{action 'delete' question}}>yes</button>
+					<button {{action 'deleteQuestion' question}}>yes</button>
 					<button {{action 'confirm' false}}>no</button>
 				</div>
 			{{/if}}

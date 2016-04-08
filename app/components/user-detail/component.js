@@ -3,8 +3,8 @@ import Ember from 'ember';
 export default Ember.Component.extend({
 	hiddenDelete: false,
 	actions: {
-		delete(question) {
-			this.sendAction('delete', question);
+		deleteQuestion(question) {
+			this.sendAction('deleteQuestion', question);
 			this.set('hiddenDelete', false);
 		},
 		confirm(answer) {
