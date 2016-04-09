@@ -10,9 +10,7 @@ Router.map(function() {
   this.route('learn');
   this.route('contact');
   this.route('user', {path: '/user/:user_id'}, function() {
-    this.route('questions', {path: 'question/:question_id'}, function() {
-      this.route('answer');
-    });
+    this.route('questions', {path: 'question/:question_id'}, function() {});
   });
   this.route('login');
   this.authenticatedRoute('protected');

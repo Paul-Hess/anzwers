@@ -4,16 +4,28 @@ export default Ember.Component.extend({
 	hiddenDeleteQuestion: false,
 	hiddenDeleteAccount: false,
 	adminAccount: false,
-	votesArray: Ember.computed.map('user.questions', function(question, index) {
+	
+	questionVotesArray: Ember.computed.map('user.questions', function(question, index) {
 		return question.get('voteTally');
 	}),
 
-	totalVotes: Ember.computed('votesArray', function() {
-		let count = 0;
-		for (var i = 0; i < this.get('votesArray').get('length'); i++) {
-			count += this.get('votesArray')[i];
+	answerVotesArray: Ember.computed.map('user.answers', function(answer, index) {
+		return answer.get('voteTally');
+	}),
+
+	totalVotes: Ember.computed('questionVotesArray', 'answerVotesArray', function() {
+		let count1 = 0;
+		let count2 = 0;
+		for (var i = 0; i < this.get('questionVotesArray').get('length'); i++) {
+			count1 += this.get('questionVotesArray')[i];
 		}
-		return count;
+
+		for (var i = 0; i < this.get('answerVotesArray').get('length'); i++) {
+			count2 += this.get('answerVotesArray')[i];
+		}
+
+		return count1+= count2;
+
 	}),
 
 	actions: {

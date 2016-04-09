@@ -81,7 +81,6 @@ export default Ember.Route.extend({
 		},
 
 		upVote(obj) {
-			console.log(obj);
 			var tally = obj.get('voteTally');
 			var upTally = tally+=1;
 			obj.set("voteTally", upTally);
