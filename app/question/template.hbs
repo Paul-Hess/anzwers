@@ -1,7 +1,7 @@
 <div class="question-detail">
 
 	<div class="question-layout">
-		{{question-detail question=model.questions delete="delete" update="update" saveAnswer="saveAnswer" upVote="upVote" downVote="downVote"}}
+		{{question-detail question=model.questions delete="delete" update="update" currentUser=model.currentUser saveAnswer="saveAnswer" upVote="upVote" downVote="downVote"}}
 	</div>
 	
 	<div class="answer-detail">
@@ -9,5 +9,5 @@
 	</div>
 
 </div>
-{{log model.currentAuthUser}}
+
 

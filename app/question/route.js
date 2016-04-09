@@ -3,7 +3,6 @@ import Ember from 'ember';
 export default Ember.Route.extend({
 	model(params) {
 		return Ember.RSVP.hash({
-			currentAuthUser: this.get('session').get('currentUser'),
 			questions: this.store.findRecord('question', params.question_id),
 			answers: this.store.findAll('answer'),
 			users: this.store.findAll('user')
@@ -12,10 +11,14 @@ export default Ember.Route.extend({
 
 	actions: {
 		saveAnswer(params) {
+			console.log(params);
 				let newAnswer = this.store.createRecord('answer', params);
 				let question = params.question;
+				let user = params.user;
+				user.get('answers').addObject(newAnswer);
 				question.get('answers').addObject(newAnswer);
 				newAnswer.save().then(function() {
+					user.save();
 					return question.save();
 				});
 		},

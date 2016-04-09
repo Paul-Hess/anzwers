@@ -1,6 +1,6 @@
 
 {{#if session.isAuthenticated}}
-	
+ {{#link-to 'user' session.uid }}Your page{{/link-to}}
 {{else}}
 {{sign-up signUp="signUp"}}
 

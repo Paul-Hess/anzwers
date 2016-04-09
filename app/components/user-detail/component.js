@@ -4,9 +4,11 @@ export default Ember.Component.extend({
 	hiddenDeleteQuestion: false,
 	hiddenDeleteAccount: false,
 	adminAccount: false,
+	
 	votesArray: Ember.computed.map('user.questions', function(question, index) {
 		return question.get('voteTally');
 	}),
+
 	totalVotes: Ember.computed('votesArray', function() {
 		let count = 0;
 		for (var i = 0; i < this.get('votesArray').get('length'); i++) {
@@ -14,6 +16,7 @@ export default Ember.Component.extend({
 		}
 		return count;
 	}),
+
 	actions: {
 
 		deleteQuestion(question) {
