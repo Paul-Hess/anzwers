@@ -1,11 +1,24 @@
 <div class="question-detail">
 
 	<div class="question-layout">
-		{{question-detail question=model.questions delete="delete" update="update" currentUser=model.currentUser saveAnswer="saveAnswer" upVote="upVote" downVote="downVote"}}
+		{{question-detail 
+		question=model.questions 
+		currentUser=model.currentUser
+		user=model.user
+		delete="delete" 
+		update="update" 
+		saveAnswer="saveAnswer" 
+		upVote="upVote" 
+		downVote="downVote"}}
 	</div>
 	
 	<div class="answer-detail">
-		{{answer-detail answers=model.questions.answers deleteAnswer="deleteAnswer" updateAnswer="updateAnswer" upVote="upVote" downVote="downVote"}}
+		{{answer-detail 
+		answers=model.questions.answers 
+		deleteAnswer="deleteAnswer" 
+		updateAnswer="updateAnswer" 
+		upVote="upVote" 
+		downVote="downVote"}}
 	</div>
 
 </div>

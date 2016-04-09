@@ -12,9 +12,9 @@ export default Ember.Component.extend({
 		},
 		saveAnswer() {
 			var params = {
-				user: this.get('currentUser'),
+				user: this.get('user'),
 				response: this.get('response'),
-				author: this.get('author'),
+				author: this.get('user').get('email'),
 				question: this.get('question'),
 				voteTally: 1
 			};

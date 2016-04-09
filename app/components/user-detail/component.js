@@ -4,7 +4,6 @@ export default Ember.Component.extend({
 	hiddenDeleteQuestion: false,
 	hiddenDeleteAccount: false,
 	adminAccount: false,
-	
 	votesArray: Ember.computed.map('user.questions', function(question, index) {
 		return question.get('voteTally');
 	}),

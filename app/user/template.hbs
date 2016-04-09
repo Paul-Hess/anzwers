@@ -1,5 +1,18 @@
+{{#if model.currentUser}}
 
 <h2>{{model.user.email}}'s Questions and Answers</h2>
-{{user-detail user=model.user saveQuestion="saveQuestion" update="update" deleteQuestion="deleteQuestion" deleteUser="deleteUser" upVote="upVote" downVote="downVote"}}
 
+{{user-detail 
+user=model.user 
+saveQuestion="saveQuestion"
+update="update" 
+deleteQuestion="deleteQuestion" 
+deleteUser="deleteUser" 
+upVote="upVote" 
+downVote="downVote"}}
+
+
+{{else}}
+{{#link-to 'login'}}You must login to see this page{{/link-to}}
+{{/if}}
 
