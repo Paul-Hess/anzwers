@@ -5,47 +5,49 @@
 </div>
 
 <div class="user-questions">
-	{{#each user.questions as |question|}}
-	
-
-	{{user-questions question=question}}
-
+	<div class="question-summary">
+		{{#each user.questions as |question|}}
 		
-	{{#each question.answers as |answer|}}
-		<h3>{{answer.response}}</h3>
-		<p>{{answer.author}}</p>
-		<p>{{answer.voteTally}}</p>
 
-		<div class="vote">
-			<p>vote: </p>
-			<button  {{action "vote" "up" answer}}>up</button>
-			<button {{action "vote" "down" answer}}>down</button>
-		</div>
-	{{/each}}
-	
-	<div class="buttons">
+		{{user-questions question=question}}
 
-		<div class="update-question">
-			<p>edit:</p>
-			{{update-question question=question update="update"}}
-		</div>
-		
-		<div class="delete">
-			<p>delete: </p> 
-			<button {{action 'confirm' "hiddenDeleteQuestion" "yes"}}>question</button>
-		</div>
+			
+		{{#each question.answers as |answer|}}
+			<h3>{{answer.response}}</h3>
+			<p>{{answer.author}}</p>
+			<p>{{answer.voteTally}}</p>
 
-		{{#if hiddenDeleteQuestion}}
-			<div class="confirm">
-				<h3> Are you sure you want to permanently delete this question?</h3>
-				<button {{action 'deleteQuestion' question}}>yes</button>
-				<button {{action 'confirm' "hiddenDeleteQuestion" false}}>no</button>
+			<div class="vote">
+				<p>vote: </p>
+				<button  {{action "vote" "up" answer}}>up</button>
+				<button {{action "vote" "down" answer}}>down</button>
 			</div>
-		{{/if}}
-	
-	</div>
+		{{/each}}
+		
+		<div class="buttons">
 
-{{/each}}
+			<div class="update-question">
+				<p>edit:</p>
+				{{update-question question=question update="update"}}
+			</div>
+			
+			<div class="delete">
+				<p>delete: </p> 
+				<button {{action 'confirm' "hiddenDeleteQuestion" "yes"}}>question</button>
+			</div>
+
+			{{#if hiddenDeleteQuestion}}
+				<div class="confirm">
+					<h3> Are you sure you want to permanently delete this question?</h3>
+					<button {{action 'deleteQuestion' question}}>yes</button>
+					<button {{action 'confirm' "hiddenDeleteQuestion" false}}>no</button>
+				</div>
+			{{/if}}
+		
+		</div>
+
+		{{/each}}
+	</div>	
 </div>
 
 {{!-- account management --}}

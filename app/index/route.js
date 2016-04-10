@@ -1,7 +1,6 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-	firebase: Ember.inject.service(),
 	model(params) {
 		return Ember.RSVP.hash({
 			answers: this.store.findAll('answer'),
@@ -12,7 +11,6 @@ export default Ember.Route.extend({
 
 	actions: {
 		signUp(params) {
-			console.log(params);
       var _this = this;
       var ref = new Firebase('https://anzwers.firebaseio.com/');
       ref.createUser({

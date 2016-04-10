@@ -9,6 +9,7 @@ export default Ember.Component.extend({
 		saveAnswer(params) {
 			this.sendAction('saveAnswer', params);
 		},
+		
 		vote(direction, question) {
 			if (direction === "up") {
 				this.sendAction("upVote", question);
@@ -19,7 +20,6 @@ export default Ember.Component.extend({
 
 		addItem(item) {
 			this.get('compare').addItem(item);
-			console.log(this.get('compare').qAndAs);
 		}
 	}
 });

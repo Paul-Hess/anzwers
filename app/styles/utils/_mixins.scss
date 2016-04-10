@@ -35,8 +35,9 @@
 @mixin questions($color: $brand-color, $width: 80vw) {
   display: flex;
   flex-direction: column;
+  flex-wrap: wrap;
   box-shadow: -1px -1px 5px rgba($color, .4);
-  width: $width;
+
 
 
   &:hover {

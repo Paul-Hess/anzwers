@@ -1,9 +1,14 @@
-.question, .question-detail {
+.question, .question-detail, .user-questions {
 	display: flex;
-	flex-direction: column;
+	// flex-direction: column;
+	flex-wrap: wrap;
 	justify-content: space-around;
-	align-items: center;
+	// align-items: center;
 	margin: 2em 0;
+}
+
+.question-summary, {
+	flex: .33 .33 33%;
 }
 
 .question-summary, .answer-detail, .question-layout {
@@ -23,6 +28,6 @@
 .vote, .update-question, .new-answer, .delete, .update-answer {
 		border: 1px solid rgba($bg-button, .6);
 		button {
-		 width: 100%;
+		 width: 10vw;
 		}
 }

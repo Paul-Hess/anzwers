@@ -2,9 +2,8 @@
 {{#if session.isAuthenticated}}
  {{#link-to 'user' session.uid }}Your page{{/link-to}}
 {{else}}
-{{sign-up signUp="signUp"}}
-
-{{#link-to 'login'}}Log In {{/link-to}}
+	{{sign-up signUp="signUp"}}
+	{{#link-to 'login'}}Log In {{/link-to}}
 {{/if}}
 
 

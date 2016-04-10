@@ -29,10 +29,10 @@ body {
 a {
   color: $brand-color;
   text-decoration: none;
-
+  transition: all .25s linear;
+  
   @include on-event {
-    color: lighten($brand-color, 20%);
+    color: lighten($brand-color, 30%);
     text-decoration: none;
-    line-height: 1.5;
   }
 }

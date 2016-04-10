@@ -17,14 +17,14 @@ $code-font-stack: 'Courier New', 'DejaVu Sans Mono', 'Bitstream Vera Sans Mono',
 
 
 
-
-/// Copy text color
-/// @type Color
-$text-color: #764D27 !default;
-
 /// Main brand color
 /// @type Color
 $brand-color: #295278 !default;
+
+/// Copy text color
+/// @type Color
+$text-color: 	$brand-color !default;
+
 
 /// Light grey
 /// @type Color
@@ -38,11 +38,11 @@ $mid-grey: rgb(153, 153, 153) !default;
 /// @type Color
 $dark-grey: rgb(68, 68, 68) !default;
 
-$bg-color: #ffffcc;
+$bg-color: #ffffff;
 
-$bg-header: lighten($text-color, 10%);
+$bg-header: lighten($brand-color, 20%);
 
-$bg-button: #2A7829;
+$bg-button: darken($brand-color, 10%);
 
 
 $radius: 4px;
