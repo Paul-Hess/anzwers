@@ -1,6 +1,7 @@
 import Ember from 'ember';
 
 export default Ember.Component.extend({
+	compare: Ember.inject.service(),
 	hiddenConfirm: false,
 	actions: {
 		
@@ -14,6 +15,11 @@ export default Ember.Component.extend({
 			} else if (direction === "down") {
 				this.sendAction("downVote", question);
 			}
+		},
+
+		addItem(item) {
+			this.get('compare').addItem(item);
+			console.log(this.get('compare').qAndAs);
 		}
 	}
 });

@@ -3,6 +3,9 @@
 <p class="question-author">{{question.author}}</p>
 <p class="question-votes">{{question.voteTally}}</p>
 
+<button {{action "addItem" question}}>Compare this Question and Answers</button>
+{{#link-to 'comparison'}}Comparison Page{{/link-to}}
+
 <div class="vote">
 	<p>vote: </p>
 	<button  {{action "vote" "up" question}}>up</button>

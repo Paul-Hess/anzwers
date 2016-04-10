@@ -1,0 +1,6 @@
+{{#each compare.qAndAs as |question|}}
+	{{question.query}}
+	{{#each question.answers as |answer|}}
+		{{answer.response}}
+	{{/each}}
+{{/each}}

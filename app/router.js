@@ -14,6 +14,7 @@ Router.map(function() {
   });
   this.route('login');
   this.authenticatedRoute('protected');
+  this.route('comparison');
 });
 
 export default Router;
